@@ -71,44 +71,31 @@ def cmodel(cid,nam,_f,_fOut, out_ws, diag):
   metname = "met"    # Observable variable name 
 
   targetmc     = _fin.Get("signal_ttbar")      # define monimal (MC) of which process this config will model
-  controlmc    = _fin.Get("singlemuontop_ttbar")
-  controlmc_e  = _fin.Get("singleelectrontop_ttbar")
-  controlmc_w    = _fin.Get("singlemuonw_ttbar")
-  controlmc_w_e  = _fin.Get("singleelectronw_ttbar")
+  controlmc    = _fin.Get("doublemuon_ttbar")
+  controlmc_e  = _fin.Get("doublelectron_ttbar")
  
 
   systs = {}; systs_e = {}
-  systs_w = {}; systs_w_e = {}
 
   # btag systs
   systs['targetmcbtagUp']      = _fin.Get("signal_ttbar_btagUp");           systs_e['targetmcbtagUp']      = systs['targetmcbtagUp']
   systs['targetmcbtagDown']    = _fin.Get("signal_ttbar_btagDown");         systs_e['targetmcbtagDown']    = systs['targetmcbtagDown']
-  systs['controlmcbtagUp']     = _fin.Get("singlemuontop_ttbar_btagUp");    systs_e['controlmcbtagUp']     = _fin.Get("singleelectrontop_ttbar_btagUp")
-  systs['controlmcbtagDown']   = _fin.Get("singlemuontop_ttbar_btagDown");  systs_e['controlmcbtagDown']   = _fin.Get("singleelectrontop_ttbar_btagDown")
+  systs['controlmcbtagUp']     = _fin.Get("doublemuon_ttbar_btagUp");    systs_e['controlmcbtagUp']     = _fin.Get("doubleelectron_ttbar_btagUp")
+  systs['controlmcbtagDown']   = _fin.Get("doublemuon_ttbar_btagDown");  systs_e['controlmcbtagDown']   = _fin.Get("doubleelectron_ttbar_btagDown")
   
-  systs_w['targetmcbtagUp']      = _fin.Get("signal_ttbar_btagUp");           systs_w_e['targetmcbtagUp']      = systs_w['targetmcbtagUp']
-  systs_w['targetmcbtagDown']    = _fin.Get("signal_ttbar_btagDown");         systs_w_e['targetmcbtagDown']    = systs_w['targetmcbtagDown']
-  systs_w['controlmcbtagUp']     = _fin.Get("singlemuonw_ttbar_btagUp");      systs_w_e['controlmcbtagUp']     = _fin.Get("singleelectronw_ttbar_btagUp")
-  systs_w['controlmcbtagDown']   = _fin.Get("singlemuonw_ttbar_btagDown");    systs_w_e['controlmcbtagDown']   = _fin.Get("singleelectronw_ttbar_btagDown")
 
   # mistag systs
   systs['targetmcmistagUp']      = _fin.Get("signal_ttbar_mistagUp");           systs_e['targetmcmistagUp']      = systs['targetmcmistagUp']
   systs['targetmcmistagDown']    = _fin.Get("signal_ttbar_mistagDown");         systs_e['targetmcmistagDown']    = systs['targetmcmistagDown']
-  systs['controlmcmistagUp']     = _fin.Get("singlemuontop_ttbar_mistagUp");    systs_e['controlmcmistagUp']     = _fin.Get("singleelectrontop_ttbar_mistagUp")
-  systs['controlmcmistagDown']   = _fin.Get("singlemuontop_ttbar_mistagDown");  systs_e['controlmcmistagDown']   = _fin.Get("singleelectrontop_ttbar_mistagDown")
+  systs['controlmcmistagUp']     = _fin.Get("doublemuon_ttbar_mistagUp");    systs_e['controlmcmistagUp']     = _fin.Get("doubleelectron_ttbar_mistagUp")
+  systs['controlmcmistagDown']   = _fin.Get("doublemuon_ttbar_mistagDown");  systs_e['controlmcmistagDown']   = _fin.Get("doubleelectron_ttbar_mistagDown")
 
-  systs_w['targetmcmistagUp']      = _fin.Get("signal_ttbar_mistagUp");           systs_w_e['targetmcmistagUp']      = systs_w['targetmcmistagUp']
-  systs_w['targetmcmistagDown']    = _fin.Get("signal_ttbar_mistagDown");         systs_w_e['targetmcmistagDown']    = systs_w['targetmcmistagDown']
-  systs_w['controlmcmistagUp']     = _fin.Get("singlemuonw_ttbar_mistagUp");      systs_w_e['controlmcmistagUp']     = _fin.Get("singleelectronw_ttbar_mistagUp")
-  systs_w['controlmcmistagDown']   = _fin.Get("singlemuonw_ttbar_mistagDown");    systs_w_e['controlmcmistagDown']   = _fin.Get("singleelectronw_ttbar_mistagDown")
 
   # Create the transfer factors and save them (not here you can also create systematic variations of these 
   # transfer factors (named with extention _sysname_Up/Down
 
-  TopScales      = makeTop(cid,_fOut,"topmn",targetmc,controlmc,systs,False)
-  TopScales_e    = makeTop(cid,_fOut,"topen",targetmc,controlmc_e,systs_e,False)
-  TopScales_w    = makeTop(cid,_fOut,"topwmn",targetmc,controlmc_w,None,False)
-  TopScales_w_e  = makeTop(cid,_fOut,"topwen",targetmc,controlmc_w_e,None,False)
+  TopScales      = makeTop(cid,_fOut,"topmm",targetmc,controlmc,systs,False)
+  TopScales_e    = makeTop(cid,_fOut,"topee",targetmc,controlmc_e,systs_e,False)
 
 
   #######################################################################################################
@@ -124,10 +111,8 @@ def cmodel(cid,nam,_f,_fOut, out_ws, diag):
   # TRANSFERFACTORS are what is created above, eg TopScales
 
   CRs = [
-   Channel("singlemuontopModel",      _wspace,out_ws,cid+'_'+model,TopScales),
-   Channel("singleelectrontopModel",  _wspace,out_ws,cid+'_'+model,TopScales_e),
-   Channel("singlemuonwtopModel",     _wspace,out_ws,cid+'_'+model,TopScales_w),
-   Channel("singleelectronwtopModel", _wspace,out_ws,cid+'_'+model,TopScales_w_e),
+   Channel("doublemuontopModel",      _wspace,out_ws,cid+'_'+model,TopScales),
+   Channel("doubleelectrontopModel",  _wspace,out_ws,cid+'_'+model,TopScales_e),
   ]
 
 
@@ -137,10 +122,8 @@ def cmodel(cid,nam,_f,_fOut, out_ws, diag):
   # note, the code will LOOK for something called NOMINAL_name_Up and NOMINAL_name_Down, where NOMINAL=TopScales.GetName()
   # these must be created and writted to the same dirctory as the nominal (fDir)
   
-  addTopErrors(TopScales,    targetmc,"topmn", "singlemuontopModel",     _fOut,CRs,0,cid)
-  addTopErrors(TopScales_e,  targetmc,"topen", "singleelectrontopModel", _fOut,CRs,1,cid)
-  addTopErrors(TopScales_w,  targetmc,"topwmn","singlemuonwtopModel",    _fOut,CRs,2,cid,False)
-  addTopErrors(TopScales_w_e,targetmc,"topwen","singleelectronwtopModel",_fOut,CRs,3,cid,False)
+  addTopErrors(TopScales,    targetmc,"topmm", "doublemuontopModel",     _fOut,CRs,0,cid)
+  addTopErrors(TopScales_e,  targetmc,"topee", "doubleelectrontopModel", _fOut,CRs,1,cid)
 
   #######################################################################################################
 
