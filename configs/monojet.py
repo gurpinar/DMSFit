@@ -45,6 +45,7 @@ for s in ['0tag','1tag', '2tag']:
 		  ,"ttbar_signal"   	       :['signal','ttbar',1,0]
 		  ,"ST_signal"                 :['signal','stop',1,0]
 		  ,"QCD_signal"		       :['signal','qcd',1,0]
+		  ,"GJets_signal"	       :['signal','gjets',1,0]
 		  ,"Data_signal"	       :['signal','data',0,0]
 		  # signals
                   ,"hsDM_1000_50_100_signal"    :['signal','hsDM-1000-50-100_signal',1,1]
@@ -74,6 +75,17 @@ for s in ['0tag','1tag', '2tag']:
 		  ,"ST_zmm"                    :['dimuon','stop',1,0]
 		  ,"QCD_zmm"		       :['dimuon','qcd',1,0]
 		  ,"Data_zmm"    	       :['dimuon','data',0,0]
+
+                  # Di electron-Control
+#                  ,"VH_zee"                    :['dielectron','vh',1,0] 
+                  ,"Zll_zee"                   :['dielectron','zll',1,1]
+                  ,"Wlv_zee"                   :['dielectron','wjets',1,0]
+                  ,"Diboson_zee"               :['dielectron','dibosons',1,0]
+                  ,"ttbar_zee"                 :['dielectron','ttbar',1,0]
+                  ,"ST_zee"                    :['dielectron','stop',1,0]
+                  ,"QCD_zee"                   :['dielectron','qcd',1,0]
+                  ,"Data_zee"                  :['dielectron','data',0,0]
+
 		  # Single muon (top) control
 #                  ,"VH_tm"                     :['singlemuontop','vh',1,0] 
 #                  ,"ttH_tm"                    :['singlemuontop','tth',1,0] 
@@ -85,47 +97,41 @@ for s in ['0tag','1tag', '2tag']:
 		  ,"QCD_tmn"                    :['singlemuontop','qcd',1,0]
 		  ,"Data_tmn"        	       :['singlemuontop','data',0,0]
 
-                   # Single muon (w) control
-#                  ,"VH_wmn"                    :['singlemuonw','vh',1,0] 
-                  ,"Zll_wmn"     	       :['singlemuonw','zll',1,0]
- 		  ,"Wlv_wmn"      	       :['singlemuonw','wjets',1,0]
-		  ,"Diboson_wmn"               :['singlemuonw','dibosons',1,0]
-		  ,"ttbar_wmn"                 :['singlemuonw','ttbar',1,0]
-		  ,"ST_wmn"                    :['singlemuonw','stop',1,0]
-		  ,"QCD_wmn"	               :['singlemuonw','qcd',1,0]
-		  ,"Data_wmn"	               :['singlemuonw','data',0,0]
-
-		  # Di electron-Control
-#                  ,"VH_zee"                    :['dielectron','vh',1,0] 
-                  ,"Zll_zee"	               :['dielectron','zll',1,0]
- 		  ,"Wlv_zee"  	               :['dielectron','wjets',1,0]
-		  ,"Diboson_zee"               :['dielectron','dibosons',1,0]
-		  ,"ttbar_zee"                 :['dielectron','ttbar',1,0]
-		  ,"ST_zee"                    :['dielectron','stop',1,0]
-		  ,"QCD_zee"                   :['dielectron','qcd',1,0]
-		  ,"Data_zee"	               :['dielectron','data',0,0]
-
-
 		  # Single electron (top) control
 #                  ,"VH_te"                     :['singleelectrontop','vh',1,0] 
 #                  ,"ttH_te"                    :['singleelectrontop','tth',1,0] 
                   ,"Zll_ten"                    :['singleelectrontop','zll',1,0]
                   ,"Wlv_ten"                    :['singleelectrontop','wjets',1,0]
 		  ,"Diboson_ten"                :['singleelectrontop','dibosons',1,0]
-		  ,"ttbar_ten"                  :['singleelectrontop','ttbar',1,0]
+		  ,"ttbar_ten"                  :['singleelectrontop','ttbar',1,1]
 		  ,"ST_ten"                     :['singleelectrontop','stop',1,0]
 		  ,"QCD_ten"                    :['singleelectrontop','qcd',1,0]
 		  ,"Data_ten"                   :['singleelectrontop','data',0,0]
 
+                   # Single muon (w) control
+#                  ,"VH_wmn"                    :['singlemuonw','vh',1,0] 
+                  ,"Zll_wmn"                   :['singlemuonw','zll',1,0]
+                  ,"Wlv_wmn"                   :['singlemuonw','wjets',1,1]
+                  ,"Diboson_wmn"               :['singlemuonw','dibosons',1,0]
+                  ,"ttbar_wmn"                 :['singlemuonw','ttbar',1,0]
+                  ,"ST_wmn"                    :['singlemuonw','stop',1,0]
+                  ,"QCD_wmn"                   :['singlemuonw','qcd',1,0]
+                  ,"Data_wmn"                  :['singlemuonw','data',0,0]
+
                    # Single electron (w) control
 #                  ,"VH_wen"                    :['singleelectronw','vh',1,0] 
                   ,"Zll_wen"                   :['singleelectronw','zll',1,0]
- 		  ,"Wlv_wen"                   :['singleelectronw','wjets',1,0]
+ 		  ,"Wlv_wen"                   :['singleelectronw','wjets',1,1]
 		  ,"Diboson_wen"               :['singleelectronw','dibosons',1,0]
-		  ,"ttbar_wen"                 :['singleelectronw','ttbar',1,0]
+		  ,"ttbar_wen"                 :['singleelectronw','ttbar',1,1]
 		  ,"ST_wen"                    :['singleelectronw','stop',1,0]
 		  ,"QCD_wen"                   :['singleelectronw','qcd',1,0]
 		  ,"Data_wen"                  :['singleelectronw','data',0,0]
+
+                   # Single photon control
+                  ,"GJets_gjets"                 :['singlephoton','gjets',1,1]
+                  ,"QCD_gjets"                   :['singlephoton','qcd',1,0]
+                  ,"Data_gjets"                  :['singlephoton','data',0,0]
                   }
 
         }
