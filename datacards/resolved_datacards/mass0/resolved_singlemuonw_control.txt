@@ -1,0 +1,50 @@
+Control Region Datacard -- resolved_mass0_singlemuonw_control.txt
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+shapes *         wmn       ../../../combined_model.root combinedws:resolved_mass0_singlemuonw_$PROCESS combinedws:resolved_mass0_singlemuonw_$PROCESS_$SYSTEMATIC
+shapes data_obs  wmn       ../../../combined_model.root combinedws:resolved_mass0_singlemuonw_data
+shapes wjets     wmn       ../../../combined_model.root combinedws:resolved_mass0_singlemuonwModel_wjets_model
+#shapes ttbar     wmn       ../../../combined_model.root combinedws:resolved_mass0_singlemuonwtopModel_ttbar_model
+-------------------------------------------------------------------------------------------------
+bin 	     wmn
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin			wmn  	  wmn	    wmn      wmn        wmn       wmn
+process			zll       dibosons  stop      wjets     qcd       ttbar
+process			1         5         3         2         7         4
+rate			-1        -1        -1        1         -1        -1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+stop_Norm  lnN		-         -         1.2       -         -         -
+vv_Norm	   lnN	        -         1.2       -         -         -         - 
+QCDmu_Norm lnN	        -         -         -         -         2.0       - 
+lumi       lnN          1.023     1.023     1.023     -         1.023     -
+sf_mu     lnN           1.01      1.01      1.01      1.01      1.01      1.01
+btag      shape         1.0       1.0       1.0       -         1.0       -
+ak4_jec   lnN		1.04      1.04      1.04      -         1.04      -
+mistag	  shape		1.0       1.0       1.0       -         1.0       -
+veto_tau  lnN           1.03      1.03      1.03      1.03      1.03      1.03
+met       lnN		1.05      1.05      1.05      1.05      1.05      1.05
+trig_met  lnN		1.01      1.01      1.01      -         1.01      -
+track_mu  lnN		1.005     1.005     1.005     1.005     1.005     1.005
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+mass0_wjetseff param 0.0316 0.001264
+mass0_wlneffSF  extArg 1.0 [0.0,10.0]
+wlnpassmuon rateParam wmn wjets (@0*1.0) mass0_wlneffSF
+ttbareff param 0.1678 0.0001
+ttbareffSF  extArg 1.03 [0.96,1.1]
+ttbarpassmuon_2 rateParam wmn ttbar (@0*1.0) ttbareffSF
+resolved_mass0_stat_error_singlemuonwModel_bin0 param 0.0 1
+resolved_mass0_stat_error_singlemuonwModel_bin1 param 0.0 1
+resolved_mass0_stat_error_singlemuonwModel_bin2 param 0.0 1
+resolved_mass0_stat_error_singlemuonwModel_bin3 param 0.0 1
+#resolved_mass0_stat_error_singlemuonwtopModel_bin0 param 0.0 1
+#resolved_mass0_stat_error_singlemuonwtopModel_bin1 param 0.0 1
+#resolved_mass0_stat_error_singlemuonwtopModel_bin2 param 0.0 1
+#resolved_mass0_stat_error_singlemuonwtopModel_bin3 param 0.0 1
+btag param 0.0 1
+mistag param 0.0 1

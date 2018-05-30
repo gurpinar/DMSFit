@@ -1,0 +1,41 @@
+Control Region Datacard -- resolved_mass0_dielectron_control.txt
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+shapes *         zee       ../../../combined_model.root combinedws:resolved_mass0_dielectron_$PROCESS combinedws:resolved_mass0_dielectron_$PROCESS_$SYSTEMATIC
+shapes data_obs  zee       ../../../combined_model.root combinedws:resolved_mass0_dielectron_data
+shapes zll       zee       ../../../combined_model.root combinedws:resolved_mass0_dielectronModel_zjets_model
+-------------------------------------------------------------------------------------------------
+bin 	     zee
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin 			  zee				zee		    zee				 zee
+process      	          ttbar		                dibosons            zll		                 stop
+process      	          4                        	5                   1                            3
+rate         	          -1                            -1                  1                            -1
+-----------------------------------------------------------------------------------------------------------------------------------------
+stop_Norm  lnN            -                             -                   -                            1.2
+vv_Norm    lnN            -                             1.2                 -                            -                         
+lumi       lnN            1.023 		        1.023               -     		       	 1.023       
+sf_ele     lnN            1.02      			1.02 	            1.02		         1.02
+ak4_jec   lnN		  -         			1.04	            1.04		         1.04
+btag       shape          -          			1.0	            -    		         1.0
+mistag     shape	  -          			1.0	            -			         1.0
+trig_ele   lnN		  1.01      1.01      1.01      1.01
+veto_tau   lnN		  1.03      1.03      1.03      1.03
+met        lnN		  1.05      1.05      1.05      1.05
+track_ele  lnN		  1.01      1.01      1.01      1.01
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+mass0_zjetseff param 0.0346 0.00174
+mass0_zlleffSF  extArg 1.0 [0.0,10.0]
+llpassdielectron rateParam zee zll (@0*1.0) mass0_zlleffSF
+resolved_mass0_stat_error_dielectronModelCR_bin0 param 0.0 1
+resolved_mass0_stat_error_dielectronModelCR_bin1 param 0.0 1
+resolved_mass0_stat_error_dielectronModelCR_bin2 param 0.0 1
+resolved_mass0_stat_error_dielectronModelCR_bin3 param 0.0 1
+btag param 0.0 1
+mistag param 0.0 1

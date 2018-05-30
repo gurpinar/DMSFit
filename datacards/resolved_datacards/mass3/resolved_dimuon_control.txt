@@ -1,0 +1,42 @@
+Control Region Datacard -- resolved_mass3_dimuon_control.txt
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+
+shapes data_obs    zmm ../../../combined_model.root  combinedws:resolved_mass3_dimuon_data 
+shapes zll    	   zmm ../../../combined_model.root  combinedws:resolved_mass3_dimuonModel_zjets_model 
+shapes *           zmm ../../../combined_model.root  combinedws:resolved_mass3_dimuon_$PROCESS combinedws:resolved_mass3_dimuon_$PROCESS_$SYSTEMATIC
+-------------------------------------------------------------------------------------------------
+bin 	     zmm
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin			zmm       zmm       zmm       zmm
+process			zll       stop      ttbar     dibosons
+process			1         3         4         5
+rate			1        -1        -1        -1
+-----------------------------------------------------------------------------------------------------------------------------------------
+stop_Norm  lnN		-         1.2       -         -
+vv_Norm    lnN		-         -         -         1.2
+lumi   	   lnN          -         1.023     1.023     1.023
+sf_mu      lnN		-         -         -         -
+ak4_jec   lnN		-         1.04      1.04      1.04
+btag	   shape	-         1.0       1.0       1.0
+mistag	   shape	-         1.0       1.0       1.0
+veto_tau   lnN		1.03      1.03      1.03      1.03
+met	   lnN		1.05      1.05      1.05      1.05
+trig_met   lnN		-         1.01      1.01      1.01
+track_mu   lnN		-         1.01      1.01      1.01
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+mass3_zjetseff param 0.0346 0.00174
+mass3_zlleffSF  extArg 1.0 [0.0,10.0]
+llpassdimuon rateParam zmm zll (@0*1.0) mass3_zlleffSF
+resolved_mass3_stat_error_dimuonModelCR_bin0 param 0.0 1
+resolved_mass3_stat_error_dimuonModelCR_bin1 param 0.0 1
+resolved_mass3_stat_error_dimuonModelCR_bin2 param 0.0 1
+resolved_mass3_stat_error_dimuonModelCR_bin3 param 0.0 1
+btag param 0.0 1
+mistag param 0.0 1

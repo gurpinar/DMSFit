@@ -1,0 +1,34 @@
+Control Region Datacard -- monox_mass2_photon_fail_control.txt
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+shapes *         pho_fail  ../../../combined_model.root combinedws:monox_mass2_photon_fail_$PROCESS combinedws:monox_mass2_photon_$PROCESS_$SYSTEMATIC
+shapes data_obs  pho_fail  ../../../combined_model.root combinedws:monox_mass2_photon_fail_data
+shapes gjets     pho_fail  ../../../combined_model.root combinedws:monox_mass2_photonfailModel_zjets_model
+-------------------------------------------------------------------------------------------------
+bin 	     pho_fail
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin			pho_fail     pho_fail
+process			gjets   qcd
+process			6       7
+rate			1       -1
+------------------------------------------
+lumi       lnN          1.025   1.025
+ca15_jec   lnN          -    1.04
+veto_tau   lnN          1.03 1.03
+met        lnN          1.05 1.05
+---------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+gjetseff param 0.0346 0.00174 
+phoeffSF  extArg 1.0 [0.0,10.0]
+gjetsfailphoton rateParam pho_fail gjets ((1.0-@0*@1)/(1.0-@1)) phoeffSF,gjetseff
+gjetseff param 0.0346 0.00174 
+phoeffSF  extArg 1.0 [0.0,10.0]
+gjetsfailphoton rateParam pho_fail gjets ((1.0-@0*@1)/(1.0-@1)) phoeffSF,gjetseff
+mettrig param 0.0 1
+btag param 0.0 1
+mistag param 0.0 1

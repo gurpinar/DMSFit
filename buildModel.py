@@ -5,6 +5,7 @@ from optparse import OptionParser
 
 parser = OptionParser()
 parser.add_option("","--skip",default=False,action='store_true',help="Ignore missing samples rather than failing")
+parser.add_option("","--mass",type=str,default=None)
 (options,args) = parser.parse_args()
 
 
@@ -26,12 +27,18 @@ r.gSystem.Load("libRooFitCore.so")
 # All c++ functionalities
 r.gROOT.ProcessLine('.L ./ModelBuilder_with_stat.cc+')
 fout = r.TFile(x.out_file_name,'RECREATE')
+if options.mass: fout = r.TFile("mass"+options.mass+"_"+x.out_file_name,'RECREATE')
 
 # Loop and build components for categories
 for cat_id,cat in enumerate(x.categories):
   fin  = r.TFile.Open(cat['in_file_name'])
-  fout.cd(); fdir = fout.mkdir("category_%s"%cat['name'])
-
+  if options.mass:
+    if options.mass in cat['name']: 
+      fout.cd(); fdir = fout.mkdir("category_%s"%cat['name'])
+    else: 
+      continue
+  else:
+    fout.cd(); fdir = fout.mkdir("category_%s"%cat['name'])
   mb = r.ModelBuilder(cat_id,cat['name'])
   mb.fIn  = fin
   mb.fOut = fdir

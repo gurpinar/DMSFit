@@ -1,0 +1,46 @@
+ Control Region Datacard -- resolved_mass0 signal.txt
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+shapes *         sig       ../../../combined_model.root combinedws:resolved_mass0_signal_$PROCESS combinedws:resolved_mass0_signal_$PROCESS_$SYSTEMATIC
+shapes data_obs  sig       ../../../combined_model.root combinedws:resolved_mass0_signal_data
+shapes signal    sig       ../../../combined_model.root combinedws:resolved_mass0_signal_XX-SIGNAL-XX_signal combinedws:resolved_mass0_signal_XX-SIGNAL-XX_signal_$SYSTEMATIC
+shapes ttbar     sig       ../../../combined_model.root combinedws:resolved_mass0_signal_ttbar_model
+shapes wjets     sig       ../../../combined_model.root combinedws:resolved_mass0_signal_wjets_model
+shapes zvv       sig       ../../../combined_model.root combinedws:resolved_mass0_signal_zjets_model
+-------------------------------------------------------------------------------------------------
+bin 	     sig
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin			sig       sig            sig       sig       sig       sig       sig
+process			signal    dibosons       stop      wjets     qcd       ttbar     zvv
+process			0         5              3         2         7         4         8
+rate			-1        -1             -1        1         -1        1         1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+stop_Norm      lnN      -         -              1.2       -         -         -         -
+vv_Norm	       lnN	-         1.2            -         -         -         -         -         
+QCDsig_Norm    lnN	-         -              -         -         2.0       -         -         
+lumi           lnN      1.023     1.023          1.023     -         1.023     -         -
+btag           shape    1.0       1.0            1.0       -         1.0       -         -       
+ak4_jec       	lnN	1.04      1.04           1.04      -         1.04      -         -
+#ecf_tag		lnN	1.07      -              -         -         -         -         -
+mistag		shape	1.0       1.0            1.0       -         1.0       -         -
+veto_tau	lnN	1.03      1.03           1.03      1.03      1.03      1.03      1.03
+met		lnN	1.05      1.05           1.05      1.05      1.05      1.05      1.05
+trig_met	lnN	1.01      1.01           1.01      -         1.01      -         -
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+mass0_zjetseff param 0.0346 0.00174
+mass0_zlleffSF  extArg 1.0 [0.0,10.0]
+zvvpasssignal rateParam sig zvv (@0*1.0) mass0_zlleffSF
+mass0_wjetseff param 0.0316 0.001264
+mass0_wlneffSF  extArg 1.0 [0.0,10.0]
+wlnpasssignal rateParam sig wjets (@0*1.0) mass0_wlneffSF
+ttbareff param 0.1678 0.0001
+ttbareffSF  extArg 1.03 [0.96,1.1]
+ttbarpasssignal rateParam sig ttbar (@0*1.0) ttbareffSF
+btag param 0.0 1
+mistag param 0.0 1

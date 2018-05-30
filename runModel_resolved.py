@@ -1,9 +1,9 @@
 #########################################################################################
 # Setup the basics ----> USER DEFINED SECTION HERE ------------------------------------//
-fOutName = "combined_model_boosted.root"  # --> Output file
-fName    = "boosted.root"  # --> input file (i.e output from previous)
+fOutName = "combined_model_resolved.root"  # --> Output file
+fName    = "resolved.root"  # --> input file (i.e output from previous)
 #fName    = "mono-x-smoothed.root"  # --> input file (i.e output from previous)
-categories = ["boosted_mass0","boosted_mass0_fail","boosted_mass1","boosted_mass1_fail","boosted_mass2","boosted_mass2_fail","boosted_mass3","boosted_mass3_fail"]
+categories = ["resolved_mass0","resolved_mass0_fail","resolved_mass1","resolved_mass1_fail","resolved_mass2","resolved_mass2_fail","resolved_mass3","resolved_mass3_fail"]
 #categories = ["monox_mass0","monox_mass0_fail","monox_mass1","monox_mass1_fail","monox_mass2","monox_mass2_fail","monox_mass3","monox_mass3_fail"] # --> Should be labeled as in original config 
 controlregions_def = ["Z_constraints","W_constraints","Top_constraints"] # --> configuration configs for control region fits. 
 # Note if one conrol region def depends on another (i,e if setDependant() is called) it must come AFTER its 

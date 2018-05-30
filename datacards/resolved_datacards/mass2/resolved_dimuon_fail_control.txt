@@ -1,0 +1,41 @@
+Control Region Datacard -- resolved_mass2_dimuon_fail_control
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+shapes *         zmm_fail  ../../../combined_model.root combinedws:resolved_mass2_fail_dimuon_$PROCESS combinedws:resolved_mass2_fail_dimuon_$PROCESS_$SYSTEMATIC
+shapes data_obs  zmm_fail  ../../../combined_model.root combinedws:resolved_mass2_fail_dimuon_data
+shapes zll       zmm_fail  ../../../combined_model.root combinedws:resolved_mass2_fail_dimuonModel_zjets_model
+-------------------------------------------------------------------------------------------------
+bin 	     zmm_fail
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin			zmm_fail       zmm_fail       zmm_fail       zmm_fail
+process			zll       stop      ttbar     dibosons
+process			1         3         4         5
+rate			1        -1        -1        -1
+-----------------------------------------------------------------------------------------------------------------------------------------
+stop_Norm  lnN		-         1.2        -           -
+vv_Norm    lnN		-         -          -           1.2
+lumi   	   lnN          -         1.023      1.023       1.023
+sf_mu      lnN		1.02      1.02       1.02        1.02
+ak4_jec   lnN          1.04      1.04      1.04      1.04
+btag       shape        -         1.0       1.0       1.0         
+mistag     shape        -         1.0       1.0       1.0
+veto_tau   lnN          1.03      1.03      1.03      1.03
+met        lnN          1.05      1.05      1.05      1.05
+trig_met   lnN          -         1.01      1.01      1.01
+track_mu   lnN          1.01      1.01      1.01      1.01
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+mass2_zjetseff param 0.0346 0.00174
+mass2_zlleffSF  extArg 1.0 [0.0,10.0]
+zllfaildimuon rateParam zmm_fail zll ((1.0-@0*@1)/(1.0-@1)) mass2_zlleffSF,mass2_zjetseff
+resolved_mass2_stat_error_dimuonfailModelCR_bin0 param 0.0 1
+resolved_mass2_stat_error_dimuonfailModelCR_bin1 param 0.0 1
+resolved_mass2_stat_error_dimuonfailModelCR_bin2 param 0.0 1
+resolved_mass2_stat_error_dimuonfailModelCR_bin3 param 0.0 1
+btag param 0.0 1
+mistag param 0.0 1
