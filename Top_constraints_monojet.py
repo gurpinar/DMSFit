@@ -27,7 +27,6 @@ def cmodel(cid,nam,_f,_fOut, out_ws, diag):
   controlmc_we = _fin.Get("singleelectronw_ttbar")
  
 
-
   # Create the transfer factors and save them (not here you can also create systematic variations of these 
   # transfer factors (named with extention _sysname_Up/Down
 
@@ -91,6 +90,7 @@ def cmodel(cid,nam,_f,_fOut, out_ws, diag):
   addStatErrs(TopScales_e,CRs[1],'topem','electronmuon')
   addStatErrs(TopScales_wm,CRs[2],'wm','singlemuonw')
   addStatErrs(TopScales_we,CRs[3],'we','singleelectronw')
+  
 
   #######################################################################################################
 
