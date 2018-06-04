@@ -1,0 +1,29 @@
+Control Region Datacard -- monojet_0btag_photon_control.txt
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+shapes *         pho       ../../../combined_model.root combinedws:monojet_0btag_photon_$PROCESS combinedws:monojet_0btag_photon_$PROCESS_$SYSTEMATIC
+shapes data_obs  pho       ../../../combined_model.root combinedws:monojet_0btag_photon_data
+shapes gjets     pho       ../../../combined_model.root combinedws:monojet_0btag_photonModel_zjets_model
+-------------------------------------------------------------------------------------------------
+bin 	     pho
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin			pho     pho
+process			gjets   qcd
+process			6       7
+rate			1       -1
+------------------------------------------
+lumi       lnN          1.025   1.025
+ak4_jec   lnN		-    1.04
+veto_tau   lnN		1.03 1.03
+met	   lnN		1.05 1.05
+---------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+gjetspassphoton rateParam pho gjets  (1.0*@0*@1) btag,mistag
+mettrig param 0.0 1
+btag param 0.0 1
+mistag param 0.0 1

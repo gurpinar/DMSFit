@@ -1,0 +1,42 @@
+Control Region Datacard -- monojet_0btag signal.txt
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+shapes *         sig       ../../../combined_model.root combinedws:monojet_0btag_signal_$PROCESS combinedws:monojet_0btag_signal_$PROCESS_$SYSTEMATIC
+shapes data_obs  sig       ../../../combined_model.root combinedws:monojet_0btag_signal_data
+shapes signal    sig       ../../../combined_model.root combinedws:monojet_0btag_signal_XX-SIGNAL-XX_signal combinedws:monojet_0btag_signal_XX-SIGNAL-XX_signal_$SYSTEMATIC
+shapes ttbar     sig       ../../../combined_model.root combinedws:monojet_0btag_signal_ttbar_model
+shapes wjets     sig       ../../../combined_model.root combinedws:monojet_0btag_signal_wjets_model
+shapes zvv       sig       ../../../combined_model.root combinedws:monojet_0btag_signal_zjets_model
+-------------------------------------------------------------------------------------------------
+bin 	     sig
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin			sig       sig            sig       sig       sig       sig       sig
+process			signal    dibosons       stop      wjets     qcd       ttbar     zvv
+process			0         5              3         2         7         4         8
+rate			-1        -1             -1        1         -1        1         1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+stop_Norm      lnN      -         -              1.2       -         -         -         -
+vv_Norm	       lnN	-         1.2            -         -         -         -         -         
+QCDsig_Norm    lnN	-         -              -         -         2.0       -         -         
+lumi           lnN      1.023     1.023          1.023     -         1.023     -         -
+btag           shape    1.0       1.0            1.0       -         1.0       -         -       
+ak4_jec 	lnN 	1.04 	  1.04 		 1.04 	   - 	     1.04      - 	 -
+#ecf_tag	lnN	1.07      -              -         -         -         -         -
+mistag		shape	1.0       1.0            1.0       -         1.0       -         -
+veto_tau	lnN	1.03      1.03           1.03      1.03      1.03      1.03      1.03
+met		lnN	1.05      1.05           1.05      1.05      1.05      1.05      1.05
+trig_met	lnN	1.01      1.01           1.01      -         1.01      -         -
+zjethf 		lnN     -         -              -         -         -         -         0.95
+wjethf 		lnN     -         -              -         0.95      -         -         -
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+zvv0btagsignal rateParam sig_0btag zvv (1.0*@0*@1) btag,mistag
+wln0btagsignal rateParam sig_0btag wjets (1.0*@0*@1) btag,mistag
+ttbar0btagsignal rateParam sig_0btag ttbar (1.0*@0*@1) btag,mistag
+btag param 0.0 1
+mistag param 0.0 1

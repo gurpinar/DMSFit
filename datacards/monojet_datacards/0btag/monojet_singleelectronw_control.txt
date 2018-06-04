@@ -1,0 +1,60 @@
+Control Region Datacard -- monojet_0btag_singleelectronw_control.txt
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+shapes *         wen       ../../../combined_model.root combinedws:monojet_0btag_singleelectronw_$PROCESS combinedws:monojet_0btag_singleelectronw_$PROCESS_$SYSTEMATIC
+shapes data_obs  wen       ../../../combined_model.root combinedws:monojet_0btag_singleelectronw_data
+shapes wjets     wen       ../../../combined_model.root combinedws:monojet_0btag_singleelectronwModel_wjets_model
+#shapes ttbar     wen       ../../../combined_model.root combinedws:monojet_0btag_singleelectronwtopModel_ttbar_model
+-------------------------------------------------------------------------------------------------
+bin 	     wen
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin			wen       wen       wen       wen       wen       wen
+process			zll       dibosons  stop      wjets     qcd       ttbar 
+process			1         5         3         2         7         4 
+rate			-1        -1        -1        1         -1        -1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+stop_Norm  lnN		-         -         1.2       -         -         - 
+vv_Norm	   lnN	        -         1.2       -         -         -         -
+QCDe_Norm  lnN	        -         -         -         -         2.0       - 
+lumi       lnN          1.023     1.023     1.023     -         1.023     -
+sf_ele     lnN          1.01      1.01      1.01      1.01      1.01      1.01
+btag      shape         1.0       1.0       1.0       -         1.0       -
+ak4_jec   lnN		1.04      1.04      1.04      -         1.04      -
+mistag	   shape	1.0       1.0       1.0       -         1.0       -
+trig_ele   lnN		1.01      1.01      1.01      1.01      1.01      1.01
+veto_tau   lnN		1.03      1.03      1.03      1.03      1.03      1.03 
+met        lnN		1.05      1.05      1.05      1.05      1.05      1.05
+track_ele  lnN		1.005     1.005     1.005     1.005     1.005     1.005
+zjethf     lnN		0.95	  -         -         -         -         -
+wjethf     lnN		-	  -	    -	      0.95	-	  -
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+wln0btagelectron rateParam wen wjets (1.0*@0*@1) btag,mistag
+monojet_0btag_stat_error_singleelectronwModel_bin0 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin1 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin2 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin3 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin4 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin5 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin6 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin7 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin8 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin9 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin10 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin11 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin12 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin13 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin14 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin15 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin16 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin17 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin18 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin19 param 0.0 1
+monojet_0btag_stat_error_singleelectronwModel_bin20 param 0.0 1
+btag param 0.0 1
+mistag param 0.0 1

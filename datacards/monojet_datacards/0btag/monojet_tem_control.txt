@@ -1,0 +1,60 @@
+Control Region Datacard -- monojet_0btag_tem_control.txt
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+shapes *         tem       ../../../combined_model.root combinedws:monojet_0btag_tem_$PROCESS combinedws:monojet_0btag_tem_$PROCESS_$SYSTEMATIC
+shapes data_obs  tem       ../../../combined_model.root combinedws:monojet_0btag_tem_data
+shapes ttbar     tem       ../../../combined_model.root combinedws:monojet_0btag_temModel_ttbar_model
+#shapes wjets     tem       ../../../combined_model.root combinedws:monojet_0btag_temwModel_wjets_model
+-------------------------------------------------------------------------------------------------
+bin 	     tem
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin			tem       tem       tem       tem       tem       tem
+process			zll       dibosons  stop      wjets     qcd       ttbar
+process			1         5         3         2         7         4
+rate			-1        -1        -1        -1        -1         1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+stop_Norm  lnN	 	-         -         1.2       -         -         -
+vv_Norm	   lnN	        -         1.2       -         -         -         -
+QCDe_Norm lnN	        -         -         -         -         2.0       -
+lumi	   lnN          1.023     1.023     1.023     1.023     1.023     -
+sf_ele     lnN          1.01      1.01      1.01      1.01      1.01      1.01
+btag       shape        1.0       1.0       1.0       1.0       1.0       -
+ak4_jec   lnN		1.04      1.04      1.04      1.04      1.04      -
+mistag	   shape	1.0       1.0       1.0       1.0       1.0       -
+trig_ele   lnN		1.01      1.01      1.01      1.01      1.01      1.01
+veto_tau   lnN		1.03      1.03      1.03      1.03      1.03      1.03
+met	   lnN		1.05      1.05      1.05      1.05      1.05      1.05
+track_ele  lnN		1.005     1.005     1.005     1.005     1.005     1.005
+zjethf     lnN		0.95	  -	    -	      -		-	  -
+wjethf     lnN 		-	  -	    -	      0.95	-	  -
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+ttbar0btagelectron rateParam tem ttbar (1.0*@0*@1) btag,mistag
+monojet_0btag_stat_error_temModelCR_bin0 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin1 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin2 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin3 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin4 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin5 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin6 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin7 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin8 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin9 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin10 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin11 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin12 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin13 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin14 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin15 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin16 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin17 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin18 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin19 param 0.0 1
+monojet_0btag_stat_error_temModelCR_bin20 param 0.0 1
+btag param 0.0 1
+mistag param 0.0 1
